@@ -14,8 +14,11 @@ def sort_movies_by_name(list_of_movies):
     return sorted(list_movie_names)
 
 def sort_movies_by_type(list_of_movies, type_of_movie):
-    list_movies = np.array([movie.name for movie in list_of_movies if movie.type == type_of_movie])
-    return list_movies
+    if type_of_movie not in ["vhf", "dvd"]:
+        return []
+    else:
+        list_movies = np.array([movie.name for movie in list_of_movies if movie.type == type_of_movie])
+        return list_movies
 
 def clean_data(unclean_list_of_movies):
     clean_list_of_film = []
